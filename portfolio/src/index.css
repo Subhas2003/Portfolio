@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll instead */
+}
+
+body {
+  background-color: #0a0c10;
+}
+
+::selection {
+  background: rgba(96, 165, 250, 0.3);
+  color: #fff;
+}
+
+.grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.floating-particle {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+  background: rgba(96, 165, 250, 0.8);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.8);
+  opacity: 0.6;
+  animation: particleFloat var(--particle-duration) ease-in-out infinite;
+  animation-delay: var(--particle-delay);
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(var(--drift-x), var(--drift-y)) scale(1.8);
+    opacity: 0;
+  }
+}
+
+.glass-card {
+  background: rgba(22, 27, 34, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(96, 165, 250, 0.5);
+  box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.15);
+}
+
+.btn-primary {
+  background-color: #60a5fa;
+  color: #00131f;
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 28px rgba(96, 165, 250, 0.6);
+}
+
+.btn-outline {
+  border: 1px solid #60a5fa;
+  color: #a4c9ff;
+  background: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: rgba(96, 165, 250, 0.1);
+}
+
+.skill-tag {
+  background: rgba(96, 165, 250, 0.1);
+  color: #a4c9ff;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.input-field {
+  background-color: #0a0c10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e2e8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.2);
+}
+
+.input-field::placeholder {
+  color: #6b7280;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
